@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import NavBar from "./Components/NavBar/NavBar";
-import ContactUs from "./Components/ContactUs/ContactUs";
-import Homepage from "./Components/Homepage/Homepage";
-import Skills from "./Components/Skills/Skills";
-import MyProjects from "./Components/MyProjects/MyProjects";
-import Introduction from "./Components/Introduction/Introduction";
+import NavBar from "./Components/NavBar";
+import ContactUs from "./Components/Contactus"
+import Homepage from "./Components/Home";
+import Skills from "./Components/Skills";
+import MyProjects from "./Components/MyProject";
+import Introduction from "./Components/Introduction";
 import "./App.css"; // Import global styles
 
 const App = () => {
