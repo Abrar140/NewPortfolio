@@ -9,11 +9,12 @@ import {
   useMediaQuery,
   useTheme,
   Box,
-  Button, // Import Button component
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
-const NavBar = ({ onNavClick }) => {
+const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -26,18 +27,20 @@ const NavBar = ({ onNavClick }) => {
     setAnchorEl(null);
   };
 
-  const handleNavItemClick = (component) => {
-    handleMenuClose(); // Close the menu
-    onNavClick(component); // Call parent component function to change active component
-  };
-
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "#16a085", borderBottom: "2px solid #12876f" }}
+      sx={{ backgroundColor: "#f39c12", borderBottom: "2px solid #f39c12" }}
     >
-      <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1, fontSize: "24px" }}>
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        {/* Left-aligned title */}
+        <Typography variant="h6" sx={{ fontSize: "24px" }}>
           Muhammad Abrar
         </Typography>
 
@@ -45,36 +48,41 @@ const NavBar = ({ onNavClick }) => {
         {!isMobile && (
           <Box sx={{ display: "flex", gap: 2 }}>
             <Button
+              component={Link}
+              to="/"
               color="inherit"
-              onClick={() => handleNavItemClick("home")}
               sx={{ fontSize: "18px" }}
             >
               Home
             </Button>
             <Button
+              component={Link}
+              to="/introduction"
               color="inherit"
-              onClick={() => handleNavItemClick("introduction")}
               sx={{ fontSize: "18px" }}
             >
               About Me
             </Button>
             <Button
+              component={Link}
+              to="/skills"
               color="inherit"
-              onClick={() => handleNavItemClick("skills")}
               sx={{ fontSize: "18px" }}
             >
               Skills
             </Button>
             <Button
+              component={Link}
+              to="/myprojects"
               color="inherit"
-              onClick={() => handleNavItemClick("myprojects")}
               sx={{ fontSize: "18px" }}
             >
               Projects
             </Button>
             <Button
+              component={Link}
+              to="/contact"
               color="inherit"
-              onClick={() => handleNavItemClick("contact")}
               sx={{ fontSize: "18px" }}
             >
               Contact Me
@@ -99,19 +107,31 @@ const NavBar = ({ onNavClick }) => {
               onClose={handleMenuClose}
               sx={{ mt: "45px" }}
             >
-              <MenuItem onClick={() => handleNavItemClick("home")}>
+              <MenuItem component={Link} to="/" onClick={handleMenuClose}>
                 Home
               </MenuItem>
-              <MenuItem onClick={() => handleNavItemClick("introduction")}>
+              <MenuItem
+                component={Link}
+                to="/introduction"
+                onClick={handleMenuClose}
+              >
                 About Me
               </MenuItem>
-              <MenuItem onClick={() => handleNavItemClick("skills")}>
+              <MenuItem component={Link} to="/skills" onClick={handleMenuClose}>
                 Skills
               </MenuItem>
-              <MenuItem onClick={() => handleNavItemClick("myprojects")}>
+              <MenuItem
+                component={Link}
+                to="/myprojects"
+                onClick={handleMenuClose}
+              >
                 Projects
               </MenuItem>
-              <MenuItem onClick={() => handleNavItemClick("contact")}>
+              <MenuItem
+                component={Link}
+                to="/contact"
+                onClick={handleMenuClose}
+              >
                 Contact Me
               </MenuItem>
             </Menu>
