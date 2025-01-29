@@ -25,7 +25,13 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
-      toast.success("Message sent successfully!");
+      const subject = encodeURIComponent(formData.name);
+      const body = encodeURIComponent(formData.message);
+      const mailtoLink = `mailto:muhamadabraramjad@gmail.com?subject=${subject}&body=${body}`;
+  
+      // Open the default email client
+      window.location.href = mailtoLink;
+  
       setFormData({ name: "", email: "", message: "" });
     } else {
       toast.error("Please fill in all fields correctly.");
