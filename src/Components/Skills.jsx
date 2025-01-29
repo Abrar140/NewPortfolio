@@ -28,8 +28,9 @@ import {
   PiMicrosoftExcelLogo,
   PiMicrosoftPowerpointLogo,
 } from "react-icons/pi"; // Microsoft icons
-
+import { useNavigate } from "react-router-dom";
 const Skills = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -278,6 +279,7 @@ const Skills = () => {
 
       <Button
         variant="contained"
+        onClick={() => navigate("/contact")} 
         sx={{
           mt: 4,
           backgroundColor: "#f39c12",
