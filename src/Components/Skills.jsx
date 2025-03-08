@@ -59,14 +59,14 @@ const Skills = () => {
             sx={{
               backgroundColor: "#1e1e1e",
               textAlign: "center",
-              // boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.1)",
-
               py: 3,
               "&:hover": { boxShadow: "0px 4px 20px rgba(255, 255, 255, 0.2)" },
             }}
           >
             <CardContent>
-              <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+              <Typography variant="h6" sx={{ 
+                fontWeight: "bold",
+                 mb: 2 }}>
                 Frontend Technologies
               </Typography>
               <Box
