@@ -15,6 +15,8 @@ const Resume = () => {
     { id: "biography", label: "Biography", number: "01" },
     { id: "education", label: "Education", number: "02" },
     { id: "experience", label: "Experience", number: "03" },
+    { id: "certifications", label: "Certifications", number: "04" },
+
   ];
 
   const resumeData = {
@@ -30,7 +32,7 @@ const Resume = () => {
         title: "BS (Software Engineering)",
         university: "COMSATS University Lahore Campus",
         year: "2021 - 2025",
-        description: "Currently in the 8th semester with a CGPA of 3.66.",
+        description: "Graduated with a CGPA of 3.67.",
       },
       {
         title: "Intermediate (FSC Pre-Engineering)",
@@ -46,13 +48,29 @@ const Resume = () => {
       },
     ],
     experience: [
+          {
+        title: "Internship in Web Development",
+        university: "Optima Geeks",
+        year: "July 2025 - August 2025",
+        description:
+          "During my internship at OG, I contributed to their chrome extension for website tracked i worked on api and corrected them. Also there i also got Faimliar with Next js and Nest js.",
+      },
       {
         title: "Internship in Web Development",
         university: "Punjab Workers Welfare Fund",
-        year: "2024-present",
+        year: "2024-2025",
         description:
           "During my internship at PWWF, I contributed to digitalizing their systems by developing and managing the E-Letters and Academia Connect modules. I worked on streamlining the flow of letters across various departments, tracking their statuses, and managing organizational expenses. Additionally, I helped design web portals for admin, schools, and teachers while integrating a mobile application for students, enabling efficient management of courses, student progress, and resources.",
       },
+    ],
+    certifications: [
+      {
+        title: "First Position in FYP(Final Year Project) Competition",
+        university: "COMSATS University Lahore Campus",
+        year: "2025",
+        description: "Secured first position in the FYP competition among all departments at CUI for the project 'Digital Governance Solution', It has two modules E-letters and Academia Connect.E-Letter is a web portal designed for the Punjab Workers Welfare Board (PWWB) to send , recive,  manage and track the flow of all letters in their organiztaion. Academia Connect is a comprehensive platform designed for the Punjab Workers Welfare Board (PWWB) to manage educational institutions and student progress effectively.",
+      },
+  
     ],
   };
 

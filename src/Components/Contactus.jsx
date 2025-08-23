@@ -9,6 +9,7 @@ import {
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SiLeetcode } from "react-icons/si";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -99,7 +100,20 @@ const Contact = () => {
                   />
                 ),
                 title: "LinkedIn",
-                value: "muhammad-abrar-07315a290",
+                value: (
+                  <a
+      href="https://www.linkedin.com/in/muhammad-abrar-07315a290"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ color: "#fff", textDecoration: "none" }}
+    >
+      muhammad-abrar-07315a290
+    </a>
+  ),
+
+
+
+
               },
               {
                 icon: (
@@ -108,8 +122,34 @@ const Contact = () => {
                   />
                 ),
                 title: "GitHub",
-                value: "Abrar140",
-              },
+value: (
+    <a
+      href="https://github.com/Abrar140"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ color: "#fff", textDecoration: "none" }}
+    >
+      Abrar140
+    </a>
+  ),              },
+
+               {
+                icon: (
+               <SiLeetcode
+                   style={{ color: "#f39c12", fontSize: 30, marginRight: 2 }}
+               />
+                ),
+                title: "Leetcode",
+ value: (
+    <a
+      href="https://leetcode.com/u/abrar140/"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ color: "#fff", textDecoration: "none" }}
+    >
+      abrar140
+    </a>
+  ),              },
             ].map((item, index) => (
               <Box
                 key={index}

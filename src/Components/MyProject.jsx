@@ -7,9 +7,10 @@ const MyProjects = () => {
     {
       name: "Academia Connect",
       category: "Web & Mobile App",
-      languages: ["React", "React Native", "Node.js", "MongoDB", "Express"],
+      languages: ["React", "React Native", "PostgreSQL", "Supabase"],
       description:
         "Academia Connect is a multi-module platform for the Punjab Workers Welfare Board (PWWB). It includes web portals for Admin, School, and Teachers to manage tasks such as student progress, expenses, and course materials. The mobile app for Students allows them to track their learning journey and interact with their respective teachers and School.",
+      activeLink: "https://www.myacademiaconnect.com/",
     },
 
     {
@@ -42,8 +43,8 @@ const MyProjects = () => {
       languages: ["HTML", "CSS", "React"],
       description:
         "I created a portfolio to showcase my skills, experience, and projects, featuring an introduction, skills section, projects, professional experience, and a contact section for potential collaborations or opportunities.",
-      codeLink: "https://example.com/code1",
-      videoLink: "https://youtu.be/lvVKl_sXbTo",
+      activeLink: "https://abrarportfolio-two.vercel.app/",
+        videoLink: "https://youtu.be/lvVKl_sXbTo",
     },
     {
       name: "Simple Bloging",

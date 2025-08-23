@@ -69,6 +69,24 @@ const Project = ({ project }) => {
           View Code
         </Button>
       )}
+        {project.activeLink && (
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#f39c12",
+            color: "#000",
+            padding: "0.8rem 2rem",
+            fontSize: "1rem",
+            fontWeight: "bold",
+            "&:hover": { backgroundColor: "#d68709" },
+            marginBottom: "1rem",
+          }}
+          href={project.activeLink}
+          target="_blank"
+        >
+          Active Link
+        </Button>
+      )}
 
       {project.videoLink && (
         <Button
