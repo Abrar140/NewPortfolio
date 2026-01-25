@@ -16,6 +16,8 @@ const Resume = () => {
     { id: "education", label: "Education", number: "02" },
     { id: "experience", label: "Experience", number: "03" },
     { id: "achievements", label: "Achievements", number: "04" },
+    { id: "certificates", label: "Certificates", number: "05" },
+
 
   ];
 
@@ -85,6 +87,41 @@ const Resume = () => {
         description: "Secured first position in the FYP competition among all departments at CUI for the project 'Digital Governance Solution', It has two modules E-letters and Academia Connect.E-Letter is a web portal designed for the Punjab Workers Welfare Board (PWWB) to send , recive,  manage and track the flow of all letters in their organiztaion. Academia Connect is a comprehensive platform designed for the Punjab Workers Welfare Board (PWWB) to manage educational institutions and student progress effectively.",
       },
   
+    ],
+      certificates: [
+       
+       {
+    title: "Bronze Medal - BS Software Engineering",
+    university: "COMSATS University Islamabad, Lahore Campus",
+    year: "Nov 2025",
+    description:
+      "Awarded the Bronze Medal in recognition of outstanding academic performance throughout the Bachelor of Science in Software Engineering program. This honor reflects consistent dedication, strong technical skills, and high overall grades among the top-performing students in the department.",
+      },
+
+      {
+        title: "First Position in FYP(Final Year Project) Competition",
+        university: "COMSATS University Lahore Campus",
+        year: " Jan 2025",
+        link: "https://drive.google.com/file/d/1UKO1hwvHDn3GSqwWAcAybf4F2b18FMlc/view?usp=sharing",
+        description: "Secured first position in the FYP competition among all departments at CUI for the project 'Digital Governance Solution', It has two modules E-letters and Academia Connect.E-Letter is a web portal designed for the Punjab Workers Welfare Board (PWWB) to send , recive,  manage and track the flow of all letters in their organiztaion. Academia Connect is a comprehensive platform designed for the Punjab Workers Welfare Board (PWWB) to manage educational institutions and student progress effectively.",
+      },
+      {
+  title: "Better Business Communication Certificate",
+  university: "CONTOUR  Software",
+  year: "Jan 2026",
+  link:"https://drive.google.com/file/d/1WoVCqFtpkzvETb1AZPZ183QtGqu3rfx6/view?usp=sharing",
+  description:
+    "This certificate represents the acquisition of essential communication skills required for effective professional and business interactions.",
+},
+{
+  title: "Better Business Communication Certificate",
+  university: "CONTOUR  Software",
+  year: "Jan 2026",
+  link:"https://drive.google.com/file/d/18qps65TPaQf-uMz7j_DbMZ6uVk20cxTD/view?usp=sharing",
+  description:
+    "This certification reflects proficiency in clear, structured, and professional communication practices.",
+}
+
     ],
   };
 
@@ -166,6 +203,8 @@ const Resume = () => {
                   >
                     {item.year}
                   </Typography>
+                  
+
                 )}
                 <Typography
                   variant="body2"
