@@ -19,6 +19,7 @@ import {
   SiMysql,
   SiMongodb,
   SiGit,
+  SiDocker,
   SiFigma,
   SiSupabase,
   SiNextdotjs,
@@ -242,6 +243,8 @@ const Skills = () => {
                 }}
               >
                 <SiGit fontSize="2rem"  title="Git"/>
+                <SiDocker fontSize="2rem"  title="Docker"/>
+
                 <BiLogoVisualStudio fontSize="2rem" title="Visual Studio" />
                 <SiJira fontSize="2rem" title="Jira" />
               </Box>

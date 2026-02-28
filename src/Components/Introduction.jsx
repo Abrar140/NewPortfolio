@@ -7,18 +7,17 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
+import Timeline from "./TimeLine";
 
 const Resume = () => {
   const [activeTab, setActiveTab] = useState("biography");
 
   const tabs = [
-    { id: "biography", label: "Biography", number: "01" },
-    { id: "education", label: "Education", number: "02" },
-    { id: "experience", label: "Experience", number: "03" },
-    { id: "achievements", label: "Achievements", number: "04" },
-    { id: "certificates", label: "Certificates", number: "05" },
-
-
+    { id: "biography", label: "Biography" },
+    { id: "education", label: "Education" },
+    { id: "experience", label: "Experience" },
+    { id: "achievements", label: "Achievements" },
+    { id: "certificates", label: "Certificates" },
   ];
 
   const resumeData = {
@@ -26,8 +25,8 @@ const Resume = () => {
       {
         title: "Introduction",
         description:
-          "Hello! I’m Muhammad Abrar, a passionate web and software developer with a keen interest in creating innovative solutions and driving technological advancements. My journey in the tech world has been fueled by a love for problem-solving and a dedication to building user-friendly applications.\n\nI am also interested in Machine Learning, Artificial Intelligence, and Image Processing. I have started learning new concepts in these fields and look forward to exploring them further.",
-      },
+           "Hello! I’m Muhammad Abrar, a passionate web and software developer with a keen interest in creating innovative solutions and driving technological advancements. My journey in the tech world has been fueled by a love for problem-solving and a dedication to building user-friendly applications.\n\nI am also interested in Machine Learning, Artificial Intelligence, and Image Processing. I have started learning new concepts in these fields and look forward to exploring them further.",
+        },
     ],
     education: [
       {
@@ -40,30 +39,30 @@ const Resume = () => {
         title: "Intermediate (FSC Pre-Engineering)",
         university: "Superior Group of Colleges",
         year: "2019 - 2021",
-        description: "Completed with 98% in 2021.",
+        description: "Completed with 98%.",
       },
       {
         title: "Matriculation (Computer Science)",
         university: "Sapphire School of Learning",
         year: "2007 - 2019",
-        description: "Completed with 94% in 2019.",
+        description: "Completed with 94%.",
       },
     ],
     experience: [
-       {
+      {
         title: "Trainee Software Developer",
         university: "CONTOUR Software, Jonas Construction",
         year: "September 2025 - Present",
         description: "During my internship at CONTOUR Software, I received hands-on training in Angular and .NET, building a strong foundation in full-stack web development. I was responsible for writing and maintaining unit tests for backend services within Jonas Document, ensuring reliability and code quality. I also assisted with the Angular migration for Jonas Document and contributed to various projects, including Apps Admin and Shared Modules, helping to improve functionality and maintainability."
       },
-          {
+      {
         title: "Software Engineer Intern",
         university: "Optima Geeks",
         year: "July 2025 - August 2025",
         description:
-          "During my internship at OG, I contributed to their chrome extension for website tracking. I worked on APIs and corrected them. Also, I became familiar with Next.js and Nest.js.",
+                  "During my internship at OG, I contributed to their chrome extension for website tracking. I worked on APIs and corrected them. Also, I became familiar with Next.js and Nest.js.",
       },
-      {
+       {
         title: "Internship in Web Development",
         university: "Punjab Workers Welfare Fund",
         year: "2024-2025",
@@ -138,6 +137,8 @@ const Resume = () => {
       <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
         Information About Me
       </Typography>
+
+      {/* Tabs */}
       <Box
         sx={{
           display: "flex",
@@ -160,63 +161,66 @@ const Resume = () => {
               fontSize: { xs: "0.8rem", sm: "1rem" },
             }}
           >
-            {tab.label}{" "}
-            <Typography component="span" sx={{ fontWeight: "bold", ml: 1 }}>
-              {tab.number}
-            </Typography>
+            {tab.label}
           </Button>
         ))}
       </Box>
-      <Grid container spacing={3} justifyContent="center">
-        {resumeData[activeTab]?.map((item, index) => (
-          <Grid item xs={12} sm={8} md={6} key={index}>
-            <Card
-              sx={{
-                backgroundColor: "#1e1e1e",
-                color: "white",
+
+      {/* Content */}
+      {activeTab === "experience" ? (
+        <Timeline data={resumeData[activeTab]} />
+      ) : (
+        <Grid container spacing={3} justifyContent="center">
+          {resumeData[activeTab]?.map((item, index) => (
+            <Grid item xs={12} sm={8} md={6} key={index}>
+              <Card
+                sx={{
+                  backgroundColor: "#1e1e1e",
+                  color: "white",
                 p: { xs: 2, md: 3 },
                 textAlign: "center",
-                borderRadius: "12px",
-              }}
-            >
-              <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                  {item.title}
-                </Typography>
-                {item.university && (
-                  <Typography variant="body2" sx={{ color: "#f39c12" }}>
-                    {item.university}
+                                 borderRadius: "12px",
+                }}
+              >
+                <CardContent>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                    {item.title}
                   </Typography>
-                )}
-                {item.year && (
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      backgroundColor: "#f39c12",
+                  {item.university && (
+                    <Typography variant="body2" sx={{ color: "#f39c12" }}>
+                      {item.university}
+                    </Typography>
+                  )}
+                  {item.year && (
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        backgroundColor: "#f39c12",
                       color: "black",
-                      px: 2,
-                      py: 0.5,
-                      borderRadius: "10px",
-                      display: "inline-block",
-                      mt: 1,
-                    }}
-                  >
-                    {item.year}
-                  </Typography>
-                  
-
-                )}
-                <Typography
+                        px: 2,
+                        py: 0.5,
+                        borderRadius: "10px",
+                        display: "inline-block",
+                        mt: 1,
+                      }}
+                    >
+                      {item.year}
+                    </Typography>
+                
+                
+                 )}
+ <Typography
                   variant="body2"
                   sx={{ mt: 2, fontSize: { xs: "0.9rem", md: "1rem" } }}
-                >
-                  {item.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+                >                 
+                   {item.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Box>
   );
 };
