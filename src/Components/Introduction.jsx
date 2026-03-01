@@ -105,6 +105,13 @@ const Resume = () => {
         link:"https://drive.google.com/file/d/1UKO1hwvHDn3GSqwWAcAybf4F2b18FMlc/view",
       },
       {
+  title: "Two-Day Advance Agile Workshop Certificate",
+  university: "Contour Software (Contour Lahore)",
+  year: "Jan 2026",
+  description: "Awarded for successfully attending and completing the Two-Day Advance Agile Workshop held on 27–28 January at Contour Lahore. The workshop focused on hands-on, activity-driven learning covering Scrum, Extreme Programming (XP), and Kanban, with emphasis on advanced Agile mindset, backlog refinement, strategic prioritization, estimation, sprint execution, and proactive risk management.",
+  link: "https://drive.google.com/file/d/1ajVO36O62j3LQNT5oKFLKoG1pMIZztfp/view?usp=sharing",
+},
+      {
         title: "Better Business Communication Certificate",
         university: "CONTOUR Software",
         year: "Jan 2026",

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Button, IconButton, Typography, Box } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  IconButton,
+  Stack,
+} from "@mui/material";
 import {
   LinkedIn,
   Email,
@@ -8,162 +14,242 @@ import {
   FileDownload,
   ContentCopy,
 } from "@mui/icons-material";
-import AbrarImage from "./Abrar.png";
-import CV from "./Abrar_CV.pdf";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import AbrarImage from "./Abrar.png";
+import CV from "./Abrar_CV.pdf";
+
+const jobTitles = [
+  "Software Engineer",
+  "Frontend Developer",
+  "Backend Developer",
+  "Full Stack Developer",
+  "MERN Stack Developer",
+  "MEAN Stack Developer",
+];
+
+const typingSpeed = 100;
+const pauseTime = 1500;
+
 const Homepage = () => {
-  const [jobTitle, setJobTitle] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [titleIndex, setTitleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const jobTitles = [
-    "Software Engineer",
-    "Frontend-Developer",
-    "Backend-Developer",
-    "Full-Stack Developer",
-    "MERN Stack Developer",
-    "MEAN Stack Developer"
-  ];
-  const typingSpeed = 100; // Speed in milliseconds
 
   useEffect(() => {
-    const currentTitle = jobTitles[currentIndex];
+    const currentTitle = jobTitles[titleIndex];
 
     if (charIndex < currentTitle.length) {
       const timeout = setTimeout(() => {
-        setJobTitle((prev) => prev + currentTitle[charIndex]);
+        setText((prev) => prev + currentTitle[charIndex]);
         setCharIndex((prev) => prev + 1);
       }, typingSpeed);
       return () => clearTimeout(timeout);
     } else {
       const timeout = setTimeout(() => {
+        setText("");
         setCharIndex(0);
-        setJobTitle("");
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % jobTitles.length);
-      }, 2000); // Pause before starting the next title
+        setTitleIndex((prev) => (prev + 1) % jobTitles.length);
+      }, pauseTime);
       return () => clearTimeout(timeout);
     }
-  }, [charIndex, currentIndex, jobTitles]);
+  }, [charIndex, titleIndex]);
 
   const downloadCV = () => {
     const link = document.createElement("a");
     link.href = CV;
-    link.download = "Muhammad Abrar Cv.pdf";
+    link.download = "Muhammad_Abrar_CV.pdf";
     link.click();
   };
 
   const copyEmail = () => {
-    const email = "muhamadabraramjad@gmail.com";
-    navigator.clipboard.writeText(email).then(() => {
-      toast.success("Email address copied to clipboard!");
-    });
+    navigator.clipboard.writeText("muhamadabraramjad@gmail.com");
+    toast.success("Email copied to clipboard!");
   };
 
   return (
     <>
-      {/* ToastContainer must be added to display notifications */}
       <ToastContainer />
+
       <Box
         sx={{
+          minHeight: "100vh",
+          backgroundColor: "#121212",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "#121212",
-          boxShadow: 3,
-          px: 4,
-          py: 2,
-          position: "relative",
-          overflow: "hidden",
-          flexDirection: { xs: "column", md: "row" },
+          justifyContent: "center",
+          px: 2,
         }}
       >
-        <Box sx={{ flex: 1, textAlign: "left" }}>
-          <Typography
-            variant="subtitle1"
-            sx={{ color: "#f39c12", fontWeight: "bold" }}
-          >
-            Welcome To My Portfolio
-          </Typography>
-          <Typography
-            variant="h3"
-            sx={{ fontWeight: "bold", mt: 1, color: "#ffffff" }}
-          >
-            Hi, I am <span style={{ color: "#f39c12" }}>Muhammad Abrar</span>
-          </Typography>
-          <Typography variant="h5" sx={{ color: "#f39c12", mt: 2 }}>
-            {jobTitle}
-          </Typography>
-          <Typography variant="body1" sx={{ mt: 2, color: "#ffffff" }}>
-            Passionate about web development.Seeking opportunities to innovate and grow.
-          </Typography>
-          <Box sx={{ display: "flex", gap: 2, mt: 3 }}>
-            <IconButton
-              href="https://linkedin.com/in/muhammad-abrar-07315a290"
-              target="_blank"
-              sx={{ backgroundColor: "#f39c12", color: "#121212" }}
+        <Box
+          sx={{
+            maxWidth: "1200px",
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+            gap: 6,
+            alignItems: "center",
+          }}
+        >
+          {/* LEFT CONTENT */}
+          <Box>
+            <Typography
+              sx={{
+                color: "#f39c12",
+                fontWeight: 600,
+                letterSpacing: 1.5,
+                mb: 1,
+              }}
             >
-              <LinkedIn />
-            </IconButton>
-            <IconButton
-              href="mailto:muhamadabraramjad@gmail.com"
-              sx={{ backgroundColor: "#f39c12", color: "#121212" }}
+              WELCOME TO MY PORTFOLIO
+            </Typography>
+
+            <Typography
+              variant="h3"
+              sx={{
+                color: "#ffffff",
+                fontWeight: 800,
+                lineHeight: 1.2,
+              }}
             >
-              <Email />
-            </IconButton>
-            <IconButton
-              href="tel:+923006241919"
-              sx={{ backgroundColor: "#f39c12", color: "#121212" }}
+              Hi, I am{" "}
+              <Box component="span" sx={{ color: "#f39c12" }}>
+                Muhammad Abrar
+              </Box>
+            </Typography>
+
+            <Typography
+              variant="h5"
+              sx={{
+                mt: 2,
+                color: "#f39c12",
+                minHeight: "32px",
+                fontWeight: 600,
+              }}
             >
-              <Phone />
-            </IconButton>
-            <IconButton
-              href="https://github.com/Abrar140"
-              target="_blank"
-              sx={{ backgroundColor: "#f39c12", color: "#121212" }}
+              {text}
+              <Box component="span" sx={{ opacity: 0.6 }}>|</Box>
+            </Typography>
+
+            <Typography
+              sx={{
+                mt: 3,
+                color: "#ffffff",
+                maxWidth: "520px",
+                lineHeight: 1.7,
+              }}
             >
-              <GitHub />
-            </IconButton>
+              Passionate about web development. Seeking opportunities to
+              innovate, build scalable applications, and grow as a
+              professional developer.
+            </Typography>
+
+            {/* SOCIAL ICONS */}
+            <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+              {[
+                {
+                  icon: <LinkedIn />,
+                  link: "https://linkedin.com/in/muhammad-abrar-07315a290",
+                },
+                {
+                  icon: <Email />,
+                  link: "mailto:muhamadabraramjad@gmail.com",
+                },
+                {
+                  icon: <Phone />,
+                  link: "tel:+923006241919",
+                },
+                {
+                  icon: <GitHub />,
+                  link: "https://github.com/Abrar140",
+                },
+              ].map((item, index) => (
+                <IconButton
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  sx={{
+                    backgroundColor: "#f39c12",
+                    color: "#121212",
+                    transition: "0.3s",
+                    "&:hover": {
+                      backgroundColor: "#f39c12",
+                      transform: "translateY(-3px)",
+                    },
+                  }}
+                >
+                  {item.icon}
+                </IconButton>
+              ))}
+            </Stack>
+
+            {/* ACTION BUTTONS */}
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={2}
+              sx={{ mt: 4 }}
+            >
+              <Button
+                onClick={downloadCV}
+                startIcon={<FileDownload />}
+                sx={{
+                  backgroundColor: "#f39c12",
+                  color: "#121212",
+                  px: 4,
+                  py: 1.3,
+                  fontWeight: 600,
+                  "&:hover": {
+                    backgroundColor: "#f39c12",
+                  },
+                }}
+              >
+                Download CV
+              </Button>
+
+              <Button
+                onClick={copyEmail}
+                startIcon={<ContentCopy />}
+                sx={{
+                  border: "2px solid #f39c12",
+                  color: "#f39c12",
+                  px: 4,
+                  py: 1.3,
+                  fontWeight: 600,
+                  "&:hover": {
+                    backgroundColor: "#f39c12",
+                    color: "#121212",
+                  },
+                }}
+              >
+                Copy Email
+              </Button>
+            </Stack>
           </Box>
+
+          {/* RIGHT IMAGE */}
           <Box
             sx={{
               display: "flex",
-              gap: 2,
-              mt: 3,
-              flexDirection: { xs: "column", sm: "row" }, // Column on small screens, row on larger
-              alignItems: "center", // Center align buttons in column mode
+              justifyContent: "center",
             }}
           >
-            <Button
-              variant="contained"
-              startIcon={<FileDownload />}
-              onClick={downloadCV}
+            <Box
               sx={{
-                backgroundColor: "#f39c12",
-                width: { xs: "100%", sm: "auto" },
-              }} // Full width on mobile
+                borderRadius: "16px",
+                overflow: "hidden",
+                boxShadow: "0 15px 30px rgba(0,0,0,0.6)",
+                maxWidth: "380px",
+                border: "2px solid #f39c12",
+              }}
             >
-              Download CV
-            </Button>
-            <Button
-              variant="contained"
-              startIcon={<ContentCopy />}
-              onClick={copyEmail}
-              sx={{
-                backgroundColor: "#f39c12",
-                width: { xs: "100%", sm: "auto" },
-              }} // Full width on mobile
-            >
-              Copy Email Address
-            </Button>
+              <img
+                src={AbrarImage}
+                alt="Muhammad Abrar"
+                style={{ width: "100%", display: "block" }}
+              />
+            </Box>
           </Box>
-        </Box>
-        <Box sx={{ mt: { xs: 4, md: 0 }, position: "relative" }}>
-          <img
-            src={AbrarImage}
-            alt="Muhammad Abrar"
-            style={{ maxWidth: "100%", borderRadius: "10px" }}
-          />
         </Box>
       </Box>
     </>
