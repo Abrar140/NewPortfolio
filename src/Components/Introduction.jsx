@@ -26,7 +26,7 @@ const Resume = () => {
         title: "Introduction",
         description:
            "Hello! I’m Muhammad Abrar, a passionate web and software developer with a keen interest in creating innovative solutions and driving technological advancements. My journey in the tech world has been fueled by a love for problem-solving and a dedication to building user-friendly applications.\n\nI am also interested in Machine Learning, Artificial Intelligence, and Image Processing. I have started learning new concepts in these fields and look forward to exploring them further.",
-        },
+      },
     ],
     education: [
       {
@@ -62,20 +62,20 @@ const Resume = () => {
         description:
                   "During my internship at OG, I contributed to their chrome extension for website tracking. I worked on APIs and corrected them. Also, I became familiar with Next.js and Nest.js.",
       },
-       {
+      {
         title: "Internship in Web Development",
         university: "Punjab Workers Welfare Fund",
-        year: "2024-2025",
+        year: "2024 - 2025",
         description:
           "During my internship at PWWF, I contributed to digitalizing their systems by developing and managing the E-Letters and Academia Connect modules. I worked on streamlining the flow of letters across various departments, tracking their statuses, and managing organizational expenses. Additionally, I helped design web portals for admin, schools, and teachers while integrating a mobile application for students, enabling efficient management of courses, student progress, and resources.",
       },
     ],
     achievements: [
-     {
-    title: "Bronze Medal - BS Software Engineering",
-    university: "COMSATS University Islamabad, Lahore Campus",
-    year: "Nov 2025",
-    description:
+      {
+        title: "Bronze Medal - BS Software Engineering",
+        university: "COMSATS University Islamabad, Lahore Campus",
+        year: "Nov 2025",
+        description:
       "Awarded the Bronze Medal in recognition of outstanding academic performance throughout the Bachelor of Science in Software Engineering program. This honor reflects consistent dedication, strong technical skills, and high overall grades among the top-performing students in the department.",
       },
 
@@ -87,40 +87,37 @@ const Resume = () => {
       },
   
     ],
-      certificates: [
-       
-       {
-    title: "Bronze Medal - BS Software Engineering",
-    university: "COMSATS University Islamabad, Lahore Campus",
-    year: "Nov 2025",
-    description:
-      "Awarded the Bronze Medal in recognition of outstanding academic performance throughout the Bachelor of Science in Software Engineering program. This honor reflects consistent dedication, strong technical skills, and high overall grades among the top-performing students in the department.",
-      },
+    certificates: [
 
+      {
+        title: "Bronze Medal - BS Software Engineering",
+        university: "COMSATS University Islamabad, Lahore Campus",
+        year: "Nov 2025",
+        description:
+      "Awarded the Bronze Medal in recognition of outstanding academic performance throughout the Bachelor of Science in Software Engineering program. This honor reflects consistent dedication, strong technical skills, and high overall grades among the top-performing students in the department.",
+        link: "https://drive.google.com/file/d/19YwbmupvjWiBbxboTgk03l-ONp5-jsdu/view?usp=sharing",
+      },
       {
         title: "First Position in FYP(Final Year Project) Competition",
         university: "COMSATS University Lahore Campus",
         year: " Jan 2025",
-        link: "https://drive.google.com/file/d/1UKO1hwvHDn3GSqwWAcAybf4F2b18FMlc/view?usp=sharing",
         description: "Secured first position in the FYP competition among all departments at CUI for the project 'Digital Governance Solution', It has two modules E-letters and Academia Connect.E-Letter is a web portal designed for the Punjab Workers Welfare Board (PWWB) to send , recive,  manage and track the flow of all letters in their organiztaion. Academia Connect is a comprehensive platform designed for the Punjab Workers Welfare Board (PWWB) to manage educational institutions and student progress effectively.",
+        link:"https://drive.google.com/file/d/1UKO1hwvHDn3GSqwWAcAybf4F2b18FMlc/view",
       },
       {
-  title: "Better Business Communication Certificate",
-  university: "CONTOUR  Software",
-  year: "Jan 2026",
-  link:"https://drive.google.com/file/d/1WoVCqFtpkzvETb1AZPZ183QtGqu3rfx6/view?usp=sharing",
-  description:
-    "This certificate represents the acquisition of essential communication skills required for effective professional and business interactions.",
-},
-{
-  title: "Better Business Communication Certificate",
-  university: "CONTOUR  Software",
-  year: "Jan 2026",
-  link:"https://drive.google.com/file/d/18qps65TPaQf-uMz7j_DbMZ6uVk20cxTD/view?usp=sharing",
-  description:
-    "This certification reflects proficiency in clear, structured, and professional communication practices.",
-}
-
+        title: "Better Business Communication Certificate",
+        university: "CONTOUR Software",
+        year: "Jan 2026",
+        description:"This certificate represents the acquisition of essential communication skills required for effective professional and business interactions.",
+        link:"https://drive.google.com/file/d/1WoVCqFtpkzvETb1AZPZ183QtGqu3rfx6/view",
+      },
+      {
+        title: "Better Business Communication Certificate",
+        university: "CONTOUR Software",
+        year: "Jan 2026",
+      description:"This certification reflects proficiency in clear, structured, and professional communication practices.",
+        link:  "https://drive.google.com/file/d/18qps65TPaQf-uMz7j_DbMZ6uVk20cxTD/view",
+      },
     ],
   };
 
@@ -177,9 +174,9 @@ const Resume = () => {
                 sx={{
                   backgroundColor: "#1e1e1e",
                   color: "white",
-                p: { xs: 2, md: 3 },
-                textAlign: "center",
-                                 borderRadius: "12px",
+                  p: { xs: 2, md: 3 },
+                  textAlign: "center",
+                  borderRadius: "12px",
                 }}
               >
                 <CardContent>
@@ -196,7 +193,7 @@ const Resume = () => {
                       variant="body2"
                       sx={{
                         backgroundColor: "#f39c12",
-                      color: "black",
+                        color: "black",
                         px: 2,
                         py: 0.5,
                         borderRadius: "10px",
@@ -206,15 +203,38 @@ const Resume = () => {
                     >
                       {item.year}
                     </Typography>
-                
-                
-                 )}
- <Typography
-                  variant="body2"
-                  sx={{ mt: 2, fontSize: { xs: "0.9rem", md: "1rem" } }}
-                >                 
-                   {item.description}
+
+
+                  )}
+                  <Typography
+                    variant="body2"
+                    sx={{ mt: 2, fontSize: { xs: "0.9rem", md: "1rem" } }}
+                  >
+                    {item.description}
                   </Typography>
+
+                  {/* Download button ONLY for certificates */}
+                  {activeTab === "certificates" && item.link && (
+                    <Button
+                      variant="contained"
+                      sx={{
+                        mt: 2,
+                        backgroundColor: "#f39c12",
+                        color: "black",
+                        borderRadius: "20px",
+                        fontWeight: "bold",
+                        textTransform: "none",
+                        "&:hover": {
+                          backgroundColor: "#d68910",
+                        },
+                      }}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Certificate 
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             </Grid>
